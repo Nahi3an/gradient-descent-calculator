@@ -107,6 +107,7 @@ if (isset($_GET['calc_btn'])) {
     for ($i = 0; $i < sizeof($pred) + 1; $i++) {
         echo "<tr>";
         if ($i < sizeof($pred)) {
+            $sr = $i + 1;
             echo  "<td><h4>" .  $i + 1 .   "</h4></td>";
             echo  "<td><h4>" . $pred[$i]  . "</h4></td>";
             echo  "<td><h4>" . $exp[$i]  .  "</h4></td>";
