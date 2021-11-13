@@ -8,7 +8,8 @@ if (isset($_GET['calc_btn'])) {
 
     $iterationNum = (int) $_GET['iteration_num'];
 
-    echo "Iteration Num : $iterationNum <br>";
+    echo "Iteration Num : $iterationNum <br><br>";
+    echo "<b>(Precision: 4 decimal points)</b> <br><br>";
 
     $iterationNum =  $iterationNum + 1;
 
@@ -56,7 +57,7 @@ if (isset($_GET['calc_btn'])) {
             }
         }
 
-
+        $sum =  round($sum, 4);
         array_push($pred, $sum);
     }
 
@@ -80,7 +81,7 @@ if (isset($_GET['calc_btn'])) {
             $sum = $sum + $diff[$j] * $x[$j][$i];
         }
 
-        // $Diff[$i + 1] =  $sum;
+        $sum = round($sum, 4);
 
         array_push($Diff, $sum);
     }
@@ -115,8 +116,8 @@ if (isset($_GET['calc_btn'])) {
             for ($j = 0; $j < $col - 1; $j++) {
 
 
-
-                echo "<td> <h4>" . $diff[$i] * $x[$i][$j] . "</h4></td>";
+                $cell = round($diff[$i] * $x[$i][$j], 4);
+                echo "<td> <h4>" . $cell . "</h4></td>";
             }
         } else {
             echo  "<td><h4> </h4></td>";
@@ -136,12 +137,12 @@ if (isset($_GET['calc_btn'])) {
 
     echo "<br>";
 
-    echo " <form method='GET' id='w_form' action='./slr_dataset.php'></form>";
+    echo " <form method='GET' id='w_form' action='/gradient-descent-calculator/slr_dataset.php'></form>";
     echo "<table>";
 
     for ($i = 0; $i < $col; $i++) {
 
-        $wnew = $w[$i] - $alpha * $Diff[$i];
+        $wnew = round($w[$i] - $alpha * $Diff[$i], 4);
         if ($i == 0) {
             $n = "";
         } else {
@@ -150,7 +151,7 @@ if (isset($_GET['calc_btn'])) {
         }
 
         echo "<tr>";
-        echo "<td>W$i (new) = W$i (old) - (alpha * Σ Diff $n) =  
+        echo "<td>W$i (new) = W$i (old) - (alpha * Σ Diff $n) = <b>$w[$i] - $alpha * ($Diff[$i]) </b> = 
               <input type='text' name='w$i' value='$wnew' form='w_form'/></td>
             </tr>";
     }
@@ -168,5 +169,5 @@ if (isset($_GET['calc_btn'])) {
 
 
 
-    echo " <button type='submit' name='again_btn' form='w_form'>Again</button>";
+    echo " <br><button type='submit' name='again_btn' form='w_form'>Next Iteration => </button>";
 }

@@ -6,7 +6,7 @@ $rowNum = $_GET['row'];
 $colNum = $_GET['col'];
 
 session_start();
-echo " <form method='GET' id='data_form' action='./calculate.php'></form>";
+echo " <form method='GET' id='data_form' action='/gradient-descent-calculator/calculate.php'></form>";
 
 if (isset($_GET['go_btn'])) {
     $iterationNum = 1;
@@ -104,3 +104,4 @@ echo "<input type='text' name='iteration_num' value='$iterationNum' hidden form=
 echo " <button type='submit' name='calc_btn' form='data_form'>ok</button>";
 
 echo "<p>Here SLR EQN : y = w0 + w1X1 + w2X2 + w3X3 + .... + wnXn</p>";
+echo "<b>(Precision: 4 decimal points)</b> <br><br>";
