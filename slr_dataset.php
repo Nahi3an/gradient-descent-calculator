@@ -6,7 +6,7 @@ $rowNum = $_GET['row'];
 $colNum = $_GET['col'];
 
 session_start();
-echo " <form method='GET' id='data_form' action='/gradient-descent-calculator/calculate.php'></form>";
+echo " <form method='GET' id='data_form' action='./calculate.php'></form>";
 
 if (isset($_GET['go_btn'])) {
     $iterationNum = 1;

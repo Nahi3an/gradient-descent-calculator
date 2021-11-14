@@ -138,7 +138,7 @@ if (isset($_GET['calc_btn'])) {
 
     echo "<br>";
 
-    echo " <form method='GET' id='w_form' action='/gradient-descent-calculator/slr_dataset.php'></form>";
+    echo " <form method='GET' id='w_form' action='./slr_dataset.php'></form>";
     echo "<table>";
 
     for ($i = 0; $i < $col; $i++) {
